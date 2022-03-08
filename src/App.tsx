@@ -1,32 +1,17 @@
-import React, {useRef} from 'react';
-import {StyleSheet, View, SafeAreaView, Button} from 'react-native';
+import React from 'react';
+import {StyleSheet, View, SafeAreaView} from 'react-native';
 import WebView from 'react-native-webview';
 import {buildHTML} from './iFrame';
 
 const App = () => {
-  const webRef = useRef<WebView>(null);
-
-  const playVideo = () => {
-    webRef.current?.injectJavaScript('play()');
-  };
-
-  const pauseVideo = () => {
-    webRef.current?.injectJavaScript('pause()');
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.videoContainer}>
         <WebView
-          ref={webRef}
-          source={{html: buildHTML('JzS96auqau0')}}
+          source={{html: buildHTML('hQJeGBYI3C8')}}
           allowsFullscreenVideo={false}
           allowsInlineMediaPlayback
         />
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button title="Play" onPress={playVideo} />
-        <Button title="Pause" onPress={pauseVideo} />
       </View>
     </SafeAreaView>
   );

@@ -25,14 +25,6 @@ const buildIFrame = (videoId: string) => `
             });
             MessageInvoker.postMessage('YouTube has loaded');
           }
-
-          function pause() {
-            player.pauseVideo();
-          }
-
-          function play() {
-            player.playVideo();
-          }
         </script>
         `;
 
