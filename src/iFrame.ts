@@ -4,7 +4,7 @@ const {width} = Dimensions.get('window');
 
 const buildIFrame = (videoId: string) => `
         <div id="player"></div>
-        <script>
+          <script>
           var tag = document.createElement('script');
           tag.src = "https://www.youtube.com/iframe_api";
           var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -21,9 +21,37 @@ const buildIFrame = (videoId: string) => `
                 'modestbranding': 1,
                 'controls': 0,
                 'rel': 0,
+                'loop': 1,
               },
             });
-            MessageInvoker.postMessage('YouTube has loaded');
+
+            setInterval(() => {
+              const data = {
+                currentDuration: getCurrentTime()
+              }
+              window.ReactNativeWebView.postMessage(JSON.stringify(data));
+            }, 1000)
+            
+          }
+
+          function pause() {
+            player.pauseVideo();
+          }
+
+          function play() {
+            player.playVideo();
+          }
+
+          function seekTo(time) {
+            player.seekTo(time, true);
+          }
+
+          function getDuration() {
+            return player.getDuration()
+          }
+
+          function getCurrentTime() {
+            return player.getCurrentTime()
           }
         </script>
         `;
