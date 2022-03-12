@@ -78,7 +78,7 @@ export const buildHTML = (videoId: string) => `
         <html>
           <head>
             ${iFrameStyle}
-            <meta name="viewport" content="initial-scale=0.95">
+            <meta name="viewport" content="initial-scale=1">
             <title>Navigation Delegate Example</title>
           </head>
           <body>${buildIFrame(videoId)}</body>

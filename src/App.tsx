@@ -1,5 +1,12 @@
 import React, {useRef, useState} from 'react';
-import {StyleSheet, View, SafeAreaView, Button, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  SafeAreaView,
+  Button,
+  Text,
+  Platform,
+} from 'react-native';
 import WebView, {WebViewMessageEvent} from 'react-native-webview';
 import {buildHTML} from './iFrame';
 
